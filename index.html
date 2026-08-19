@@ -1,0 +1,255 @@
+<html>
+    <body>
+        <h1>My-Profile</h1>
+        <p>
+            My name is Natpapat Chottaveepattarakul
+        </p>
+    </body>
+</html><!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me | Portfolio</title>
+  
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* CSS RESET & CSS VARIABLES */
+    :root {
+      --bg-color: #0f172a;
+      --card-bg: rgba(30, 41, 59, 0.7);
+      --border-color: rgba(255, 255, 255, 0.1);
+      --primary-color: #38bdf8;
+      --accent-color: #818cf8;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Kanit', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem 1rem;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.12) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(129, 140, 248, 0.12) 0px, transparent 50%);
+    }
+
+    /* CARD CONTAINER */
+    .profile-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      max-width: 480px;
+      width: 100%;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .profile-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    }
+
+    /* AVATAR SECTION */
+    .avatar-wrapper {
+      position: relative;
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 1.5rem auto;
+    }
+
+    .avatar-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--primary-color);
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+    }
+
+    .status-badge {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      width: 18px;
+      height: 18px;
+      background-color: #22c55e;
+      border: 3px solid var(--bg-color);
+      border-radius: 50%;
+    }
+
+    /* INFO SECTION */
+    .name {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.2rem;
+    }
+
+    .tagline {
+      color: var(--primary-color);
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin-bottom: 1.2rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .bio {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 1.8rem;
+      font-weight: 300;
+    }
+
+    /* TAGS SECTION */
+    .tags {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .tag {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      padding: 0.4rem 0.9rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* SOCIAL LINKS */
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .social-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-btn:hover {
+      background: var(--primary-color);
+      color: #000;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(56, 189, 248, 0.3);
+    }
+
+    /* ACTION BUTTON */
+    .action-btn {
+      display: inline-block;
+      width: 100%;
+      padding: 0.8rem 1.5rem;
+      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: opacity 0.3s ease, transform 0.2s ease;
+    }
+
+    .action-btn:hover {
+      opacity: 0.9;
+      transform: scale(0.99);
+    }
+
+    /* FOOTER */
+    .footer {
+      margin-top: 1.5rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <main class="profile-card">
+    <!-- รูปโปรไฟล์ (สามารถเปลี่ยน URL รูปภาพเป็นของตัวเองได้เลย) -->
+    <div class="avatar-wrapper">
+      <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" alt="Profile Picture" class="avatar-img">
+      <div class="status-badge" title="Online"></div>
+    </div>
+
+    <!-- ข้อมูลส่วนตัว -->
+    <h1 class="name">Natpapat CHOT.</h1>
+    <p class="tagline">Cool & Friendly Lifestyle</p>
+    
+    <p class="bio">
+      ยินดีที่ได้รู้จักครับ! เป็นคนสบายๆ สายเท่ ลุยๆ ได้หมด ชื่นชอบดนตรี ท่องเที่ยว และการค้นหาสไลฟ์สไตล์ใหม่ๆ ในแบบของตัวเอง
+    </p>
+
+    <!-- แท็กสไตล์/สิ่งที่สนใจ -->
+    <div class="tags">
+      <span class="tag"><i class="fa-solid fa-music"></i> Music</span>
+      <span class="tag"><i class="fa-solid fa-camera"></i> Photography</span>
+      <span class="tag"><i class="fa-solid fa-mug-hot"></i> Coffee Lover</span>
+      <span class="tag"><i class="fa-solid fa-plane"></i> Travel</span>
+    </div>
+
+    <!-- ช่องทางติดต่อ Social Media -->
+    <div class="social-links">
+      <a href="#" class="social-btn" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="#" class="social-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#" class="social-btn" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+      <a href="#" class="social-btn" title="Line"><i class="fa-brands fa-line"></i></a>
+    </div>
+
+    <!-- ปุ่ม Action -->
+    <button class="action-btn" onclick="contactAlert()">
+      <i class="fa-regular fa-envelope"></i> ติดต่องาน / ทักทาย
+    </button>
+
+    <div class="footer">
+      © 2026 Nong Tom. All rights reserved.
+    </div>
+  </main>
+
+  <script>
+    function contactAlert() {
+      alert("ขอบคุณที่แวะมาทักทายครับ! สามารถส่งข้อความหาผมผ่าน Social ด้านบนได้เลยนะ");
+    }
+  </script>
+</body>
+</html>
